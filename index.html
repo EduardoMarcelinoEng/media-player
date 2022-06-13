@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Player</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="app" class="container-fluid container-main">
+        <header>
+            Media Player
+        </header>
+        <main>
+            <img
+                :src="listMusics[position].img"
+                draggable="false"
+                :alt="listMusics[position].alt"
+            >
+        </main>
+        <div id="range">
+            <input type="range" min="1" max="100" value="50" class="slider">
+        </div>
+        <footer>
+                <div class="description-music">
+                    <p class="name">{{listMusics[position].name}}</p>
+                    <p class="band">{{listMusics[position].band}}</p>
+                </div>
+                <div class="control">
+                    <div class="commands">
+                        <i v-on:click="previous" class="fa-solid fa-backward-step fa-2xl"></i>
+                        <div class="toggle">
+                            <i v-on:click="toggle" v-if="isPlay" class="fa-solid fa-circle-pause fa-2xl"></i>
+                            <i v-on:click="toggle" v-else class="fa-solid fa-circle-play fa-2xl"></i>
+                        </div>
+                        <i v-on:click="next" class="fa-solid fa-forward-step fa-2xl"></i>
+                    </div>
+                </div>
+                <div class="description-music-hidden" unselectable="on">
+                    <p class="name">{{listMusics[position].name}}</p>
+                    <p class="band">{{listMusics[position].band}}</p>
+                </div>
+        </footer>
+    </div>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="assets/js/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "name": "media-player",
+  "version": "1.0.0",
+  "description": "Tocador de música",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["media-player", "html", "css", "javascript", "bootstrap", "vuejs"],
+  "author": "Eduardo Marcelino",
+  "license": "MIT"
+}

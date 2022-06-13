@@ -1,0 +1,137 @@
+.container-main {
+    background-color: #121214;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0;
+}
+
+footer, header {
+    background-color: #03AE6F;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    color: white;
+    font-weight: 600;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+header {
+    justify-content: center;
+    font-size: 28px;
+    box-sizing: border-box;
+}
+
+footer {
+    justify-content: space-between;
+    padding: 20px;
+}
+
+footer .description-music p, footer .description-music-hidden p {
+    margin: 0;
+}
+
+footer .description-music-hidden p {
+    color: #03AE6F;
+    -webkit-touch-callout: none;  /* iPhone OS, Safari */
+    -webkit-user-select: none;    /* Chrome, Safari 3 */
+    -khtml-user-select: none;     /* Safari 2 */
+    -moz-user-select: none;       /* Firefox */
+    -ms-user-select: none;        /* IE10+ */
+    user-select: none;
+}
+
+footer .toggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.commands {
+    display: flex;
+    justify-content: space-between;
+    width: 120px;
+}
+
+i:hover {
+    cursor: pointer;
+}
+
+main {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+main img {
+    max-height: 30vh;
+}
+
+.control {
+    display: flex;
+}
+
+@media (max-width: 768px) {
+    footer {
+        flex-direction: column;
+        height: 25vh;
+    }
+    footer .description-music, footer .commands {
+        margin-bottom: 15px;
+    }
+    footer .description-music {
+        text-align: center;
+    }
+    .description-music-hidden {
+        display: none;
+    }
+}
+
+/* Todo o código abaixo é responsável pelo range input */
+
+input[type="range"] {
+    display: none !important;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 5px;
+    border-radius: 5px;  
+    background: #a2e5d2;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+  
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%; 
+    background: #63b397;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #63b397;
+    cursor: pointer;
+}
+
+#range {
+    background-color: #238903;
+}
+
+#range input {
+    display: flex;
+    bottom: 20px;
+}
