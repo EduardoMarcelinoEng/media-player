@@ -78,7 +78,8 @@ main img {
 @media (max-width: 768px) {
     footer {
         flex-direction: column;
-        height: 25vh;
+        height: 30vh;
+        justify-content: space-around;
     }
     footer .description-music, footer .commands {
         margin-bottom: 15px;
@@ -88,6 +89,15 @@ main img {
     }
     .description-music-hidden {
         display: none;
+    }
+    main, header, footer {
+        box-sizing: border-box;
+    }
+    header {
+        height: 15vh;
+    }
+    main {
+        height: 55vh;
     }
 }
 
