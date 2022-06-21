@@ -55,6 +55,14 @@ footer .toggle {
     width: 120px;
 }
 
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
 i:hover {
     cursor: pointer;
 }
@@ -72,7 +80,21 @@ main img {
 }
 
 .control {
-    display: flex;
+    /*display: flex;
+    background-color: red;
+    width: 300px;
+    justify-content: flex-end;*/
+    height: 100%;
+    width: 100%;
+    max-width: 500px;
+}
+
+.control .time {
+    margin: 0;
+}
+
+.control .col-md-3 {
+    padding: 0;
 }
 
 @media (max-width: 768px) {
@@ -135,6 +157,10 @@ main img {
 
 #range {
     background-color: #238903;
+}
+
+#range input:hover {
+    cursor: pointer;
 }
 
 #range input {

@@ -117,10 +117,5 @@ createApp({
             this.currentTime = 0;
             this.duration = '';
         }
-    },
-    watch: {
-        /*'audio.played'(newValue){
-            this.isPlay = newValue;
-        }*/
     }
 }).mount('#app');
