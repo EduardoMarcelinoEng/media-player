@@ -22,7 +22,14 @@
             >
         </main>
         <div id="range">
-            <input type="range" min="1" max="100" value="50" class="slider">
+            <input
+                v-on:change="e=>updateCurrentTime(e.target.value)"
+                type="range"
+                min="0"
+                :max="duration || 100"
+                :value="currentTime || 0"
+                class="slider"
+            >
         </div>
         <footer>
                 <div class="description-music">
@@ -33,11 +40,12 @@
                     <div class="commands">
                         <i v-on:click="previous" class="fa-solid fa-backward-step fa-2xl"></i>
                         <div class="toggle">
-                            <i v-on:click="toggle" v-if="isPlay" class="fa-solid fa-circle-pause fa-2xl"></i>
-                            <i v-on:click="toggle" v-else class="fa-solid fa-circle-play fa-2xl"></i>
+                            <i v-on:click="toPause" v-if="isPlay" class="fa-solid fa-circle-pause fa-2xl"></i>
+                            <i v-on:click="toPlay" v-else class="fa-solid fa-circle-play fa-2xl"></i>
                         </div>
                         <i v-on:click="next" class="fa-solid fa-forward-step fa-2xl"></i>
                     </div>
+                    <p v-if="duration">{{`${formatTime(currentTime)}/${formatTime(duration)}`}}</p>
                 </div>
                 <div class="description-music-hidden" unselectable="on">
                     <p class="name">{{listMusics[position].name}}</p>
@@ -47,5 +55,8 @@
     </div>
     <script src="https://unpkg.com/vue@3"></script>
     <script src="js/index.js"></script>
+    <script>
+        //console.log('isPlay', vm);
+    </script>
 </body>
 </html>

@@ -1,11 +1,14 @@
-const { createApp } = Vue
+const { createApp } = Vue;
 
 createApp({
     data() {
         return {
             isPlay: false,
+            currentTime: 0,
+            duration: '',
             position: 0,
             audio: null,
+            setInterval: null,
             listMusics: [
                 {
                     name: 'Do I Wanna Know?',
@@ -48,31 +51,47 @@ createApp({
     methods: {
         createAudio: function () {
             this.audio = new Audio(this.listMusics[this.position].audio);
-        },
-        toggle: function () {
 
+            this.audio.addEventListener(/*"canplaythrough"*/"loadeddata", () => {
+                this.duration = this.audio.duration;
+            });
+
+            this.audio.addEventListener("pause", () => {
+                this.isPlay = false;
+            });
+
+            this.audio.addEventListener("play", () => {
+                this.isPlay = true;
+            });
+
+            this.audio.addEventListener("ended", () => {
+                this.next();
+            });
+
+        },
+        toPlay: function(){
             if(!this.audio) {
                 this.createAudio();
             }
-
-            this.isPlay = !this.isPlay;
-            this.isPlay ? this.audio.play() : this.audio.pause();
-        },
-        toPlay: function(){
-            this.isPlay = true;
             this.audio.play();
+            if(this.setInterval) clearInterval(this.setInterval);
+            this.setInterval = setInterval(()=>{
+                this.currentTime = this.audio.currentTime;
+            }, 1000);
         },
-        toPause: function(){
-            this.isPlay = false;
+        toPause(){
             this.audio.pause();
+            clearInterval(this.setInterval);
         },
         next: function () {
-            /*console.log('currentTime', this.formatTime(this.audio.currentTime));
-            console.log('Duration', this.formatTime(this.audio.duration));*/
+            this.clearInfo();
             this.position = (this.position < (this.listMusics.length - 1)) ? (this.position + 1) : 0;
             if(this.audio) this.toPause();
             this.createAudio();
             this.toPlay();
+        },
+        updateCurrentTime(value){
+            this.audio.currentTime = value;
         },
         formatTime: function(duration){
             let minutes = parseInt(duration / 60);
@@ -88,10 +107,20 @@ createApp({
                 this.toPlay();
                 return false;
             }
+            this.clearInfo();
             this.position = (this.position >= 1) ? (this.position - 1) : (this.listMusics.length - 1);
             if(this.audio) this.toPause();
             this.createAudio();
             this.toPlay();
+        },
+        clearInfo(){
+            this.currentTime = 0;
+            this.duration = '';
         }
+    },
+    watch: {
+        /*'audio.played'(newValue){
+            this.isPlay = newValue;
+        }*/
     }
 }).mount('#app');

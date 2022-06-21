@@ -1,0 +1,37 @@
+[
+    {
+        "name": "Do I Wanna Know?",
+        "band": "Arctic Monkeys",
+        "audio": "https://firebasestorage.googleapis.com/v0/b/gestao-tarefas-8f871.appspot.com/o/Arctic%20Monkeys%20-%20Do%20I%20Wanna%20Know.mp3?alt=media&token=6b547f17-11ab-48a0-a020-b17954fa7b43",
+        "img": "../img/Arctic Monkeys - Do I Wanna Know.jpg",
+        "alt": "Arctic Monkeys - Do I Wanna Know?"
+    },
+    {
+        "name": "Beautiful Crime",
+        "band": "Tamer",
+        "audio": "https://firebasestorage.googleapis.com/v0/b/gestao-tarefas-8f871.appspot.com/o/Tamer%20-%20Beautiful%20Crime.mp3?alt=media&token=06f6fcb0-1f0b-49b4-861b-83474c786c4c",
+        "img": "../img/Tamer - Beautiful Crime.jpg",
+        "alt": "Tamer - Beautiful Crime"
+    },
+    {
+        "name": "I Don't Care",
+        "band": "Apocalyptica",
+        "audio": "https://firebasestorage.googleapis.com/v0/b/gestao-tarefas-8f871.appspot.com/o/Apocalyptica%20-%20I%20Dont%20Care.mp3?alt=media&token=f8d343dd-3699-4579-a5ee-04f7dfe0eae4",
+        "img": "../img/Apocalyptica - I Dont Care.jpg",
+        "alt": "Apocalyptica - I Dont Care"
+    },
+    {
+        "name": "Run Boy Run",
+        "band": "Woodkid",
+        "audio": "https://firebasestorage.googleapis.com/v0/b/gestao-tarefas-8f871.appspot.com/o/Woodkid%20-%20Run%20Boy%20Run.mp3?alt=media&token=e205aec0-6773-4ad6-8897-12000fbd99fb",
+        "img": "../img/Woodkid - Run Boy Run.jpg",
+        "alt": "Woodkid - Run Boy Run"
+    },
+    {
+        "name": "Creep",
+        "band": "Radiohead",
+        "audio": "https://firebasestorage.googleapis.com/v0/b/gestao-tarefas-8f871.appspot.com/o/Radiohead%20-%20Creep.mp3?alt=media&token=9e5ddc10-7d9b-4a1a-9a02-712937ce4858",
+        "img": "../img/Radiohead - Creep.jpg",
+        "alt": "Radiohead - Creep"
+    }
+]

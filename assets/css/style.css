@@ -103,10 +103,6 @@ main img {
 
 /* Todo o código abaixo é responsável pelo range input */
 
-input[type="range"] {
-    display: none !important;
-}
-
 .slider {
     -webkit-appearance: none;
     width: 100%;
