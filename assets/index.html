@@ -23,7 +23,8 @@
         </main>
         <div id="range">
             <input
-                v-on:change="e=>updateCurrentTime(e.target.value)"
+                v-on:input="e=>updateCurrentTime(e.target.value)"
+                v-on:change="e=>changeCurrentTime(e.target.value)"
                 type="range"
                 min="0"
                 :disabled="!audio"

@@ -91,7 +91,17 @@ createApp({
             this.toPlay();
         },
         updateCurrentTime(value){
+            if(this.isPlay) clearInterval(this.setInterval);
+            this.currentTime = value;
+            //this.audio.currentTime = value;
+        },
+        changeCurrentTime(value){
             this.audio.currentTime = value;
+            if(this.isPlay){
+                this.setInterval = setInterval(()=>{
+                    this.currentTime = this.audio.currentTime;
+                }, 1000);
+            }
         },
         formatTime: function(duration){
             let minutes = parseInt(duration / 60);
