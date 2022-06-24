@@ -77,13 +77,10 @@ main {
 
 main img {
     max-height: 30vh;
+    max-width: 100%;
 }
 
 .control {
-    /*display: flex;
-    background-color: red;
-    width: 300px;
-    justify-content: flex-end;*/
     height: 100%;
     width: 100%;
     max-width: 500px;
