@@ -58,10 +58,16 @@ createApp({
 
             this.audio.addEventListener("pause", () => {
                 this.isPlay = false;
+                if(this.setInterval) this.clearInterval();
             });
 
             this.audio.addEventListener("play", () => {
                 this.isPlay = true;
+                if(!this.setInterval){
+                    this.setInterval = setInterval(()=>{
+                        this.currentTime = this.audio.currentTime;
+                    }, 1000);
+                }
             });
 
             this.audio.addEventListener("ended", () => {
@@ -74,16 +80,24 @@ createApp({
                 this.createAudio();
             }
             this.audio.play();
-            if(this.setInterval) clearInterval(this.setInterval);
+            if(this.setInterval) this.clearInterval();
+            this.initSetInterval();
+        },
+        clearInterval(){
+            clearInterval(this.setInterval);
+            this.setInterval = null;
+        },
+        initSetInterval(){
             this.setInterval = setInterval(()=>{
                 this.currentTime = this.audio.currentTime;
             }, 1000);
         },
         toPause(){
             this.audio.pause();
-            clearInterval(this.setInterval);
+            this.clearInterval();
         },
         next: function () {
+            this.currentTime = this.audio.currentTime;
             this.clearInfo();
             this.position = (this.position < (this.listMusics.length - 1)) ? (this.position + 1) : 0;
             if(this.audio) this.toPause();
@@ -91,17 +105,12 @@ createApp({
             this.toPlay();
         },
         updateCurrentTime(value){
-            if(this.isPlay) clearInterval(this.setInterval);
+            if(this.isPlay) this.clearInterval();
             this.currentTime = value;
-            //this.audio.currentTime = value;
         },
         changeCurrentTime(value){
             this.audio.currentTime = value;
-            if(this.isPlay){
-                this.setInterval = setInterval(()=>{
-                    this.currentTime = this.audio.currentTime;
-                }, 1000);
-            }
+            if(this.isPlay) this.initSetInterval();
         },
         formatTime: function(duration){
             let minutes = parseInt(duration / 60);
