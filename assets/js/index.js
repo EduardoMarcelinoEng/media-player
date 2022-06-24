@@ -97,7 +97,7 @@ createApp({
             this.clearInterval();
         },
         next: function () {
-            this.currentTime = this.audio.currentTime;
+            if(this.isPlay) this.currentTime = this.audio.currentTime;
             this.clearInfo();
             this.position = (this.position < (this.listMusics.length - 1)) ? (this.position + 1) : 0;
             if(this.audio) this.toPause();
